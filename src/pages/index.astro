@@ -1,0 +1,208 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+
+const upcomingEvents = [
+  {
+    title: 'Sunday Service',
+    date: '2024-02-18',
+    time: '9:00 AM & 11:00 AM',
+    description: 'Join us for worship and the Word',
+  },
+  {
+    title: 'Youth Night',
+    date: '2024-02-21',
+    time: '6:30 PM',
+    description: 'An evening of fun and fellowship for teens',
+  },
+  {
+    title: 'Prayer Meeting',
+    date: '2024-02-22',
+    time: '7:00 PM',
+    description: 'Corporate prayer and intercession',
+  },
+];
+
+const testimonials = [
+  {
+    quote: "Finding Refiners City Church has been life-changing. The community here is truly special.",
+    author: "Sarah Johnson",
+    role: "Member since 2022"
+  },
+  {
+    quote: "The youth program has made such a positive impact on my teenagers' lives.",
+    author: "Michael Chen",
+    role: "Parent"
+  },
+  {
+    quote: "A welcoming community that feels like family from day one.",
+    author: "David Thompson",
+    role: "New Member"
+  }
+];
+
+const stats = [
+  { number: "2000+", label: "Weekly Attendees" },
+  { number: "50+", label: "Community Programs" },
+  { number: "25", label: "Years of Service" },
+  { number: "100+", label: "Volunteers" }
+];
+---
+
+<Layout 
+  title="Welcome"
+  description="Welcome to Refiners City Church - A place where you can belong, believe, and become. Join us for worship and discover your spiritual journey."
+>
+  <!-- Hero Section -->
+  <section 
+    class="relative min-h-[90vh] bg-primary-900 text-white"
+    aria-label="Welcome to Refiners City Church"
+  >
+    <!-- Background Image Container -->
+    <div 
+      class="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat"
+      style="background-image: url('https://images.unsplash.com/photo-1438232992991-995b7058bbb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');"
+    >
+      <!-- Gradient Overlay for Better Text Visibility -->
+      <div class="absolute inset-0 bg-gradient-to-b from-primary-900/90 via-primary-900/75 to-primary-900/90"></div>
+    </div>
+    
+    <!-- Main Content Container -->
+    <div class="relative h-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="h-full flex flex-col justify-center">
+        <!-- Content Wrapper with Max Width -->
+        <div class="max-w-3xl space-y-8 py-16 sm:py-20">
+          <!-- Pre-headline with Improved Visibility -->
+          <p class="text-primary-200 text-lg sm:text-xl font-medium tracking-wide">
+            Welcome to Refiners City Church
+          </p>
+
+          <!-- Main Headline with Better Spacing -->
+          <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold leading-tight">
+            Where Faith 
+            <span class="block mt-2 text-primary-200">
+              Meets Community
+            </span>
+          </h1>
+          
+          <!-- Subheadline with Enhanced Readability -->
+          <p class="text-lg sm:text-xl lg:text-2xl text-primary-200/90 max-w-2xl leading-relaxed">
+            Experience authentic worship, meaningful connections, and spiritual growth in a welcoming community that feels like home.
+          </p>
+          
+          <!-- CTA Buttons with Improved Layout -->
+          <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-4">
+            <!-- Primary CTA -->
+            <a
+              href="/new-here"
+              class="group inline-flex items-center justify-center bg-white text-primary-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-900"
+            >
+              <span class="flex items-center">
+                Plan Your Visit
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+              </span>
+            </a>
+            
+            <!-- Secondary CTA -->
+            <a
+              href="/live"
+              class="group inline-flex items-center justify-center bg-primary-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 hover:bg-primary-600 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-offset-2 focus:ring-offset-primary-900"
+            >
+              <span class="flex items-center">
+                Watch Live
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 transition-transform group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd" />
+                </svg>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator with Better Positioning -->
+      <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center">
+        <span class="text-sm text-primary-200 mb-2">Scroll to explore</span>
+        <div class="w-6 h-10 border-2 border-primary-200 rounded-full flex justify-center p-2">
+          <div class="w-1 h-3 bg-primary-200 rounded-full animate-bounce"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Section -->
+  <section class="py-16 bg-primary-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        {stats.map(stat => (
+          <div class="text-center">
+            <p class="text-4xl font-bold text-primary-900">{stat.number}</p>
+            <p class="mt-2 text-primary-600">{stat.label}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events Section -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-primary-900 mb-8">Upcoming Events</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {upcomingEvents.map(event => (
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <h3 class="text-xl font-semibold text-primary-900 mb-2">{event.title}</h3>
+            <p class="text-primary-600 mb-2">{event.date} | {event.time}</p>
+            <p class="text-primary-700">{event.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="py-16 bg-primary-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold text-primary-900 mb-8 text-center">What People Say</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {testimonials.map(testimonial => (
+          <div class="bg-white rounded-lg shadow-md p-6">
+            <p class="text-primary-700 mb-4">"{testimonial.quote}"</p>
+            <div class="border-t pt-4">
+              <p class="font-semibold text-primary-900">{testimonial.author}</p>
+              <p class="text-primary-600">{testimonial.role}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Improved button focus styles */
+  a:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+  }
+
+  /* Responsive font size adjustments */
+  @media (max-width: 640px) {
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+    }
+  }
+
+  /* Ensure content remains visible on smaller screens */
+  @media (max-height: 700px) {
+    .min-h-[90vh] {
+      min-height: 100vh;
+    }
+  }
+</style>

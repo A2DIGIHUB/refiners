@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const ministries = [
+  {
+    title: 'Youth Ministry',
+    description: 'Empowering the next generation through faith, fellowship, and fun.',
+    schedule: 'Wednesdays at 6:30 PM',
+    ageGroup: '12-18 years',
+  },
+  {
+    title: 'Children\'s Ministry',
+    description: 'Nurturing young hearts with God\'s love through age-appropriate learning and activities.',
+    schedule: 'Sundays during service',
+    ageGroup: '2-11 years',
+  },
+  {
+    title: 'Worship Ministry',
+    description: 'Leading the congregation in praise and worship through music and arts.',
+    schedule: 'Practice: Thursdays at 7:00 PM',
+    ageGroup: 'All ages',
+  },
+  {
+    title: 'Small Groups',
+    description: 'Building community and growing in faith through weekly home gatherings.',
+    schedule: 'Various times',
+    ageGroup: 'Adults',
+  },
+  {
+    title: 'Outreach Ministry',
+    description: 'Serving our community and sharing God\'s love through practical assistance.',
+    schedule: 'Monthly events',
+    ageGroup: 'All ages',
+  },
+  {
+    title: 'Prayer Ministry',
+    description: 'Interceding for our church, community, and world.',
+    schedule: 'Tuesdays at 7:00 PM',
+    ageGroup: 'Adults',
+  },
+];
+---
+
+<Layout title="Ministries">
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-primary-900 text-white py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-bold mb-4">Our Ministries</h1>
+        <p class="text-xl text-primary-200">Find your place to serve and grow</p>
+      </div>
+    </section>
+
+    <!-- Ministries Grid -->
+    <section class="py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {ministries.map((ministry) => (
+            <div class="bg-white p-6 rounded-lg shadow-md">
+              <h3 class="text-xl font-semibold text-primary-900 mb-3">{ministry.title}</h3>
+              <p class="text-primary-700 mb-4">{ministry.description}</p>
+              <div class="border-t border-primary-100 pt-4">
+                <p class="text-primary-600 mb-2">
+                  <span class="font-medium">Schedule:</span> {ministry.schedule}
+                </p>
+                <p class="text-primary-600">
+                  <span class="font-medium">Age Group:</span> {ministry.ageGroup}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Get Involved -->
+    <section class="py-16 bg-primary-50">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-primary-900 mb-6">Get Involved</h2>
+        <p class="text-lg text-primary-700 mb-8 max-w-2xl mx-auto">
+          Ready to join one of our ministries? We'd love to help you find your perfect fit in our church family.
+        </p>
+        <a
+          href="/contact"
+          class="inline-block bg-primary-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-700"
+        >
+          Contact Us
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>

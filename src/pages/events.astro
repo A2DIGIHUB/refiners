@@ -1,0 +1,134 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { format } from 'date-fns';
+
+const events = [
+  {
+    title: 'Sunday Service',
+    date: '2024-02-18',
+    time: '9:00 AM & 11:00 AM',
+    description: 'Join us for worship and the Word',
+    location: 'Main Sanctuary',
+    category: 'Worship',
+  },
+  {
+    title: 'Youth Night',
+    date: '2024-02-21',
+    time: '6:30 PM',
+    description: 'An evening of fun and fellowship for teens',
+    location: 'Youth Center',
+    category: 'Youth',
+  },
+  {
+    title: 'Prayer Meeting',
+    date: '2024-02-22',
+    time: '7:00 PM',
+    description: 'Corporate prayer and intercession',
+    location: 'Prayer Room',
+    category: 'Prayer',
+  },
+  {
+    title: 'Women\'s Bible Study',
+    date: '2024-02-24',
+    time: '10:00 AM',
+    description: 'Weekly women\'s Bible study and fellowship',
+    location: 'Fellowship Hall',
+    category: 'Bible Study',
+  },
+  {
+    title: 'Community Outreach',
+    date: '2024-02-25',
+    time: '2:00 PM',
+    description: 'Serving our local community through various projects',
+    location: 'Various Locations',
+    category: 'Outreach',
+  },
+];
+---
+
+<Layout title="Events">
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-primary-900 text-white py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-bold mb-4">Events</h1>
+        <p class="text-xl text-primary-200">Join us at our upcoming gatherings</p>
+      </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="py-8 bg-primary-50">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row gap-4">
+          <select class="px-4 py-2 rounded-md border border-primary-200 focus:outline-none focus:ring-2 focus:ring-primary-600">
+            <option value="">All Categories</option>
+            <option value="worship">Worship</option>
+            <option value="youth">Youth</option>
+            <option value="prayer">Prayer</option>
+            <option value="bible-study">Bible Study</option>
+            <option value="outreach">Outreach</option>
+          </select>
+          <input
+            type="date"
+            class="px-4 py-2 rounded-md border border-primary-200 focus:outline-none focus:ring-2 focus:ring-primary-600"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Events Grid -->
+    <section class="py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {events.map((event) => (
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+              <div class="p-6">
+                <div class="flex justify-between items-start mb-4">
+                  <div>
+                    <h3 class="text-xl font-semibold text-primary-900 mb-2">{event.title}</h3>
+                    <p class="text-primary-600">
+                      {format(new Date(event.date), 'MMMM d, yyyy')} at {event.time}
+                    </p>
+                  </div>
+                  <span class="bg-primary-100 text-primary-800 px-3 py-1 rounded-full text-sm">
+                    {event.category}
+                  </span>
+                </div>
+                <p class="text-primary-700 mb-4">{event.description}</p>
+                <div class="border-t border-primary-100 pt-4">
+                  <p class="text-primary-600">
+                    <span class="font-medium">Location:</span> {event.location}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Calendar Download -->
+    <section class="py-16 bg-primary-50">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold text-primary-900 mb-6">Stay Updated</h2>
+        <p class="text-lg text-primary-700 mb-8">
+          Download our church calendar to never miss an event
+        </p>
+        <div class="flex justify-center gap-4">
+          <a
+            href="#"
+            class="bg-primary-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-primary-700"
+          >
+            Download Calendar
+          </a>
+          <a
+            href="#"
+            class="bg-white text-primary-900 px-6 py-3 rounded-md font-semibold hover:bg-primary-50 border border-primary-200"
+          >
+            Subscribe to Updates
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

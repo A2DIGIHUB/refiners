@@ -1,0 +1,117 @@
+---
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { 
+  title,
+  description = "Refiners City Church - A place to belong, believe, and become"
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | Refiners City Church</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content={`${title} | Refiners City Church`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Performance Optimizations -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <meta name="theme-color" content="#43302b" />
+
+    <!-- Cache Control -->
+    <meta http-equiv="Cache-Control" content="max-age=31536000" />
+  </head>
+  <body class="min-h-screen bg-white">
+    <Navigation />
+    <slot />
+    <Footer />
+
+    <script>
+      // Performance optimizations
+      document.addEventListener('DOMContentLoaded', () => {
+        // Lazy load images
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        if ('loading' in HTMLImageElement.prototype) {
+          images.forEach(img => {
+            img.loading = 'lazy';
+          });
+        } else {
+          // Fallback for browsers that don't support lazy loading
+          const script = document.createElement('script');
+          script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+          document.body.appendChild(script);
+        }
+      });
+    </script>
+
+    <style is:global>
+      :root {
+        --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      html {
+        font-family: var(--font-family);
+        scroll-behavior: smooth;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Improved accessibility */
+      :focus {
+        outline: 2px solid #43302b;
+        outline-offset: 2px;
+      }
+
+      .high-contrast {
+        filter: contrast(1.5);
+      }
+
+      /* Smooth animations */
+      .fade-enter {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      .fade-enter-active {
+        opacity: 1;
+        transform: translateY(0);
+        transition: opacity 0.3s var(--transition-timing),
+                    transform 0.3s var(--transition-timing);
+      }
+
+      /* Mobile optimizations */
+      @media (max-width: 640px) {
+        html {
+          font-size: 14px;
+        }
+      }
+
+      /* Print styles */
+      @media print {
+        .no-print {
+          display: none;
+        }
+      }
+    </style>
+  </body>
+</html>

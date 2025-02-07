@@ -1,0 +1,262 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { format } from 'date-fns';
+
+const sermons = [
+  {
+    title: 'Walking in Faith',
+    speaker: 'Pastor John Smith',
+    date: '2024-02-11',
+    series: 'Faith Foundations',
+    description: 'Exploring the fundamentals of walking by faith in our daily lives.',
+    videoUrl: '#',
+    audioStreaming: {
+      spotify: 'https://open.spotify.com/show/example',
+      applePodcasts: 'https://podcasts.apple.com/show/example',
+      googlePodcasts: 'https://podcasts.google.com/feed/example',
+      subscribers: {
+        spotify: '2.5K',
+        applePodcasts: '1.8K',
+        googlePodcasts: '1.2K'
+      }
+    }
+  },
+  {
+    title: 'The Power of Prayer',
+    speaker: 'Pastor John Smith',
+    date: '2024-02-04',
+    series: 'Prayer Life',
+    description: 'Understanding the importance and impact of a consistent prayer life.',
+    videoUrl: '#',
+    audioStreaming: {
+      spotify: 'https://open.spotify.com/show/example',
+      applePodcasts: 'https://podcasts.apple.com/show/example',
+      googlePodcasts: 'https://podcasts.google.com/feed/example',
+      subscribers: {
+        spotify: '2.5K',
+        applePodcasts: '1.8K',
+        googlePodcasts: '1.2K'
+      }
+    }
+  },
+  {
+    title: 'Living with Purpose',
+    speaker: 'Pastor Sarah Johnson',
+    date: '2024-01-28',
+    series: 'Purpose Driven',
+    description: 'Discovering God\'s unique purpose for your life.',
+    videoUrl: '#',
+    audioStreaming: {
+      spotify: 'https://open.spotify.com/show/example',
+      applePodcasts: 'https://podcasts.apple.com/show/example',
+      googlePodcasts: 'https://podcasts.google.com/feed/example',
+      subscribers: {
+        spotify: '2.5K',
+        applePodcasts: '1.8K',
+        googlePodcasts: '1.2K'
+      }
+    }
+  },
+];
+
+// Analytics tracking function
+const trackPlatformClick = (platform: string) => {
+  // Implementation would go here
+  console.log(`Clicked ${platform} link`);
+};
+---
+
+<Layout title="Sermons">
+  <main>
+    <!-- Hero Section -->
+    <section class="bg-primary-900 text-white py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h1 class="text-4xl font-bold mb-4">Sermons</h1>
+        <p class="text-xl text-primary-200">Watch and listen to our latest messages</p>
+      </div>
+    </section>
+
+    <!-- Streaming Platforms Section -->
+    <section class="py-8 bg-primary-50">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-lg shadow-md p-6">
+          <h2 class="text-2xl font-bold text-primary-900 mb-6 text-center">Listen on Your Favorite Platform</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            <a 
+              href="https://open.spotify.com/show/example" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="flex flex-col items-center p-4 rounded-lg hover:bg-primary-50 transition-colors duration-300"
+              onclick="trackPlatformClick('spotify')"
+            >
+              <svg class="w-12 h-12 text-[#1DB954]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+              </svg>
+              <span class="mt-2 font-semibold text-primary-900">Spotify</span>
+              <span class="text-sm text-primary-600">2.5K Subscribers</span>
+            </a>
+            
+            <a 
+              href="https://podcasts.apple.com/show/example" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="flex flex-col items-center p-4 rounded-lg hover:bg-primary-50 transition-colors duration-300"
+              onclick="trackPlatformClick('apple-podcasts')"
+            >
+              <svg class="w-12 h-12 text-[#872EC4]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.272 1.912 2.619 2.264 4.392.12.59.12 2.2.007 2.864a8.506 8.506 0 01-3.24 5.296c-.608.46-2.096 1.261-2.336 1.261-.088 0-.096-.091-.056-.46.072-.592.144-.715.48-.856.536-.224 1.448-.874 2.008-1.435a7.644 7.644 0 002.008-3.536c.208-.824.184-2.656-.048-3.504-.728-2.696-2.928-4.792-5.624-5.352-.784-.16-2.208-.16-3 0-2.728.56-4.984 2.76-5.672 5.528-.184.736-.184 2.48 0 3.216.456 1.832 1.64 3.512 3.192 4.512.304.2.672.408.824.472.336.144.408.264.48.856.04.369.032.46-.056.46-.056 0-.464-.176-.896-.384l-.04-.03c-2.472-1.216-4.056-3.274-4.632-6.012-.144-.706-.168-2.392-.04-3.072.336-1.824 1.096-3.304 2.324-4.552 1.608-1.685 3.72-2.587 6.056-2.587zm.166 3.36c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm-2.932 1.074c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm5.864 0c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm-2.932 1.074c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm-2.932 1.074c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm5.864 0c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm-2.932 1.074c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm-2.932 1.074c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm5.864 0c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm-2.932 1.074c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298z"/>
+              </svg>
+              <span class="mt-2 font-semibold text-primary-900">Apple Podcasts</span>
+              <span class="text-sm text-primary-600">1.8K Subscribers</span>
+            </a>
+            
+            <a 
+              href="https://podcasts.google.com/feed/example" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="flex flex-col items-center p-4 rounded-lg hover:bg-primary-50 transition-colors duration-300"
+              onclick="trackPlatformClick('google-podcasts')"
+            >
+              <svg class="w-12 h-12 text-[#4285F4]" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm0 21.333c-5.148 0-9.333-4.185-9.333-9.333S6.852 2.667 12 2.667 21.333 6.852 21.333 12 17.148 21.333 12 21.333zm0-16c-3.682 0-6.667 2.985-6.667 6.667S8.318 18.667 12 18.667 18.667 15.682 18.667 12 15.682 5.333 12 5.333zm0 10.667c-2.205 0-4-1.795-4-4s1.795-4 4-4 4 1.795 4 4-1.795 4-4 4z"/>
+              </svg>
+              <span class="mt-2 font-semibold text-primary-900">Google Podcasts</span>
+              <span class="text-sm text-primary-600">1.2K Subscribers</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search and Filter -->
+    <section class="py-8 bg-primary-50">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row gap-4">
+          <input
+            type="text"
+            placeholder="Search sermons..."
+            class="flex-1 px-4 py-2 rounded-md border border-primary-200 focus:outline-none focus:ring-2 focus:ring-primary-600"
+          />
+          <select class="px-4 py-2 rounded-md border border-primary-200 focus:outline-none focus:ring-2 focus:ring-primary-600">
+            <option value="">All Series</option>
+            <option value="faith-foundations">Faith Foundations</option>
+            <option value="prayer-life">Prayer Life</option>
+            <option value="purpose-driven">Purpose Driven</option>
+          </select>
+          <select class="px-4 py-2 rounded-md border border-primary-200 focus:outline-none focus:ring-2 focus:ring-primary-600">
+            <option value="">All Speakers</option>
+            <option value="john-smith">Pastor John Smith</option>
+            <option value="sarah-johnson">Pastor Sarah Johnson</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sermons Grid -->
+    <section class="py-16">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {sermons.map((sermon) => (
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+              <div class="aspect-w-16 aspect-h-9 bg-primary-100">
+                <div class="flex items-center justify-center">
+                  <span class="text-primary-600">Sermon Video</span>
+                </div>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-semibold text-primary-900 mb-2">{sermon.title}</h3>
+                <p class="text-primary-600 mb-2">{sermon.speaker}</p>
+                <p class="text-primary-500 text-sm mb-4">
+                  {format(new Date(sermon.date), 'MMMM d, yyyy')} | {sermon.series}
+                </p>
+                <p class="text-primary-700 mb-4">{sermon.description}</p>
+                
+                <!-- Listen Now Button with Dropdown -->
+                <div class="relative group">
+                  <button
+                    class="w-full bg-primary-600 text-white px-4 py-2 rounded-md font-medium hover:bg-primary-700 mb-2"
+                  >
+                    Listen Now
+                  </button>
+                  <div class="hidden group-hover:block absolute bottom-full left-0 w-full bg-white rounded-lg shadow-lg p-2 mb-1">
+                    <a
+                      href={sermon.audioStreaming.spotify}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="flex items-center p-2 hover:bg-primary-50 rounded"
+                      onclick="trackPlatformClick('spotify')"
+                    >
+                      <span class="w-6 h-6 text-[#1DB954] mr-2">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
+                        </svg>
+                      </span>
+                      Spotify
+                    </a>
+                    <a
+                      href={sermon.audioStreaming.applePodcasts}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="flex items-center p-2 hover:bg-primary-50 rounded"
+                      onclick="trackPlatformClick('apple-podcasts')"
+                    >
+                      <span class="w-6 h-6 text-[#872EC4] mr-2">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M5.34 0A5.328 5.328 0 000 5.34v13.32A5.328 5.328 0 005.34 24h13.32A5.328 5.328 0 0024 18.66V5.34A5.328 5.328 0 0018.66 0zm6.525 2.568c2.336 0 4.448.902 6.056 2.587 1.224 1.272 1.912 2.619 2.264 4.392.12.59.12 2.2.007 2.864a8.506 8.506 0 01-3.24 5.296c-.608.46-2.096 1.261-2.336 1.261-.088 0-.096-.091-.056-.46.072-.592.144-.715.48-.856.536-.224 1.448-.874 2.008-1.435a7.644 7.644 0 002.008-3.536c.208-.824.184-2.656-.048-3.504-.728-2.696-2.928-4.792-5.624-5.352-.784-.16-2.208-.16-3 0-2.728.56-4.984 2.76-5.672 5.528-.184.736-.184 2.48 0 3.216.456 1.832 1.64 3.512 3.192 4.512.304.2.672.408.824.472.336.144.408.264.48.856.04.369.032.46-.056.46-.056 0-.464-.176-.896-.384l-.04-.03c-2.472-1.216-4.056-3.274-4.632-6.012-.144-.706-.168-2.392-.04-3.072.336-1.824 1.096-3.304 2.324-4.552 1.608-1.685 3.72-2.587 6.056-2.587zm.166 3.36c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm-2.932 1.074c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm5.864 0c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm-2.932 1.074c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm-2.932 1.074c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm5.864 0c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm-2.932 1.074c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm-2.932 1.074c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm5.864 0c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298zm-2.932 1.074c.164 0 .296.134.296.298v.888c0 .164-.132.298-.296.298h-.036a.297.297 0 01-.296-.298v-.888c0-.164.132-.298.296-.298z"/>
+                        </svg>
+                      </span>
+                      Apple Podcasts
+                    </a>
+                    <a
+                      href={sermon.audioStreaming.googlePodcasts}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="flex items-center p-2 hover:bg-primary-50 rounded"
+                      onclick="trackPlatformClick('google-podcasts')"
+                    >
+                      <span class="w-6 h-6 text-[#4285F4] mr-2">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                          <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zm0 21.333c-5.148 0-9.333-4.185-9.333-9.333S6.852 2.667 12 2.667 21.333 6.852 21.333 12 17.148 21.333 12 21.333zm0-16c-3.682 0-6.667 2.985-6.667 6.667S8.318 18.667 12 18.667 18.667 15.682 18.667 12 15.682 5.333 12 5.333zm0 10.667c-2.205 0-4-1.795-4-4s1.795-4 4-4 4 1.795 4 4-1.795 4-4 4z"/>
+                        </svg>
+                      </span>
+                      Google Podcasts
+                    </a>
+                  </div>
+                </div>
+                
+                <a
+                  href={sermon.videoUrl}
+                  class="inline-block w-full text-center bg-white border border-primary-600 text-primary-600 px-4 py-2 rounded-md font-medium hover:bg-primary-50"
+                >
+                  Watch Video
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  // Analytics tracking function
+  function trackPlatformClick(platform: string) {
+    // Implementation would go here - connect to your analytics service
+    console.log(`Clicked ${platform} link`);
+  }
+</script>
+
+<style>
+  /* Smooth hover transitions */
+  .transition-colors {
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Improved mobile responsiveness */
+  @media (max-width: 640px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
