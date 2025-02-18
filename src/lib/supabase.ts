@@ -174,3 +174,16 @@ export async function listFiles(
 
   return await query;
 }
+
+// Test Supabase connection
+export async function testConnection() {
+  try {
+    const { data, error } = await supabase.from('sermons').select('count').single();
+    if (error) throw error;
+    console.log('Successfully connected to Supabase!');
+    return { success: true, error: null };
+  } catch (error) {
+    console.error('Error connecting to Supabase:', error);
+    return { success: false, error };
+  }
+}
