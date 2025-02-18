@@ -1,1 +1,0 @@
-document.addEventListener("DOMContentLoaded",()=>{const t=document.querySelectorAll('img[loading="lazy"]');if("loading"in HTMLImageElement.prototype)t.forEach(e=>{e.loading="lazy"});else{const e=document.createElement("script");e.src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js",document.body.appendChild(e)}});
