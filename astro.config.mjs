@@ -1,30 +1,11 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
-import vercel from '@astrojs/vercel/serverless';
 
+// https://astro.build/config
 export default defineConfig({
-  integrations: [
-    tailwind(),
-    react(),
-  ],
-  output: 'server',
-  adapter: vercel(),
-  build: {
-    inlineStylesheets: 'auto',
-    splitting: true,
-    prerender: true
-  },
-  vite: {
-    build: {
-      cssCodeSplit: true,
-      rollupOptions: {
-        output: {
-          manualChunks: {
-            'vendor': ['react', 'react-dom'],
-          }
-        }
-      }
-    }
-  }
+  integrations: [tailwind(), react()],
+  output: 'hybrid',
+  // Vercel Edge Functions are detected automatically
+  adapter: 'vercel'
 });
